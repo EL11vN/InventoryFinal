@@ -341,7 +341,7 @@ app.post('/api/upload/multiple', upload.array('files', 10), (req, res) => {
       return res.json({ success: false, error: 'No files uploaded' });
     }
 
-    const files = (req.files as Express.Multer.File[]).map(file => ({
+    const files = (req.files as any).map((file: any) => ({
       originalName: file.originalname,
       filename: file.filename,
       size: file.size,
