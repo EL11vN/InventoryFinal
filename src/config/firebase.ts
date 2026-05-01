@@ -19,6 +19,11 @@ export function initializeFirebaseAdmin() {
   const privateKey = process.env.FIREBASE_PRIVATE_KEY;
   const useEmulator = process.env.USE_FIRESTORE_EMULATOR === 'true';
 
+  console.log('🔍 DEBUG: projectId=', projectId ? 'SET' : 'MISSING');
+  console.log('🔍 DEBUG: clientEmail=', clientEmail ? 'SET' : 'MISSING');
+  console.log('🔍 DEBUG: privateKey=', privateKey ? 'SET' : 'MISSING');
+  console.log('🔍 DEBUG: useEmulator=', useEmulator);
+
   // Production mode - use environment variables FIRST
   if (projectId && clientEmail && privateKey && !useEmulator) {
     firebaseApp = admin.initializeApp({
